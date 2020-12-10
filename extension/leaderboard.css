@@ -1,0 +1,25 @@
+.privboard-row {
+	display: flex!important;
+}
+
+.injected-privboard-container {
+	margin: auto;
+	width: fit-content;
+	padding-right: 10em;
+	cursor: text;
+}
+
+.injected-privboard-day-container > a {
+	display: inline-block;
+}
+
+.injected-privboard-space {
+	font-size: 10pt!important;
+	width: 80px;
+	overflow: hidden;
+	display: inline-flex;
+	justify-content: center;
+	text-align: center;
+	
+	transition: width 0.25s;
+}

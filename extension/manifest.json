@@ -1,0 +1,22 @@
+{
+	"manifest_version": 2,
+	"name": "Restyle AoC",
+	"version": "0.0.0",
+	"description": "Overwrites Advent of Code pages with a reasonable stylesheet.",
+	
+	"permissions": ["activeTab"],
+	
+	"content_scripts": [
+		{
+			"css": ["noto-sans.css", "style.css"],
+			"matches": ["https://adventofcode.com/*"],
+			"exclude_matches": ["https://adventofcode.com/*/input", "https://adventofcode.com/*.json"]
+		},
+		{
+			"js": ["leaderboard.js"],
+			"css": ["leaderboard.css"],
+			"matches": ["https://adventofcode.com/2020/leaderboard/private/view/*"],
+			"exclude_matches": ["https://adventofcode.com/*.json"]
+		}
+	]
+}

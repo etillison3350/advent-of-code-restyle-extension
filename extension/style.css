@@ -1,0 +1,74 @@
+
+main * {
+	font-family: 'Noto Sans', sans-serif;
+	line-height: 1.6;
+}
+
+pre,
+code,
+code * {
+	font-family: 'Courier New', monospace!important;
+	font-size: 11pt
+}
+
+pre,
+pre * {
+	font-family: 'Courier New', monospace!important;
+	line-height: 1.33;
+}
+
+code {
+	margin: 0px 2px 0px 1px!important;
+	padding: 0px 1px 0px 1px!important;
+}
+
+code::before {
+	top: 1px!important;
+	bottom: 3px!important;
+}
+
+pre code {
+	padding: 4px!important;
+}
+
+h2 {
+	font-size: 1.5rem!important;
+}
+
+body * {
+	text-shadow: none!important;
+}
+
+article em, .day-success {
+	font-weight: bold;
+}
+
+body,
+.privboard-row,
+.privboard-row *,
+.leaderboard-entry *:not(a) {
+	font-family: 'Courier New', monospace!important;
+	font-size: 12pt!important;
+	line-height: 1.33;
+}
+
+body {
+	max-width: 60em;
+	margin: auto;
+}
+
+body {
+	min-width: unset!important;
+}
+
+article {
+	width: unset!important;
+}
+
+#sidebar {
+	display: none;
+}
+
+header {
+	overflow: hidden;
+}
