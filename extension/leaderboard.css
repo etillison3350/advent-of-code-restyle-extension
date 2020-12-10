@@ -1,4 +1,4 @@
-.privboard-row {
+.injected-privboard-row {
 	display: flex!important;
 }
 
@@ -15,7 +15,7 @@
 
 .injected-privboard-space {
 	font-size: 10pt!important;
-	width: 80px;
+	width: 84px;
 	overflow: hidden;
 	display: inline-flex;
 	justify-content: center;

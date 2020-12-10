@@ -30,6 +30,7 @@ function configure(members) {
 	container.classList.add('injected-privboard-container');
 	rows[0].parentElement.insertBefore(container, rows[0]);
 	for (let row of rows) {
+		row.classList.add('injected-privboard-row');
 		row.parentElement.removeChild(row);
 		container.appendChild(row);
 	}
@@ -145,5 +146,5 @@ req.onreadystatechange = function() {
 		configure(members);
 	}
 }
-req.open('GET', document.URL + '.json');
+req.open('GET', document.URL.replace(/(\?.+)?$/,'.json$1'));
 req.send();
