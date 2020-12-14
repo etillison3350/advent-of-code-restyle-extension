@@ -13,6 +13,44 @@
 	display: inline-block;
 }
 
+.injected-privboard-day-link-container {
+	position: relative;
+}
+
+.injected-privboard-day-link-container.injected-privboard-day-link-container-open > .injected-privboard-day {
+	opacity: 0;
+}
+
+.injected-privboard-day-link-container.injected-privboard-day-link-container-open > .injected-privboard-full-day {
+	opacity: 1;
+}
+
+.injected-privboard-day {
+	display: inline-block;
+
+	transition: opacity 0.25s;
+}
+
+.injected-privboard-full-day {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	opacity: 0;
+
+	transition: opacity 0.2s;
+}
+
+.injected-privboard-full-day > br {
+	display: none;
+}
+
 .injected-privboard-space {
 	font-size: 10pt!important;
 	width: 84px;

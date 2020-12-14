@@ -15,7 +15,7 @@
 		{
 			"js": ["leaderboard.js"],
 			"css": ["leaderboard.css"],
-			"matches": ["https://adventofcode.com/2020/leaderboard/private/view/*"],
+			"matches": ["https://adventofcode.com/*/leaderboard/private/view/*"],
 			"exclude_matches": ["https://adventofcode.com/*.json"]
 		}
 	]

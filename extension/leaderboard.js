@@ -35,6 +35,7 @@ function configure(members) {
 		container.appendChild(row);
 	}
 	
+	let dayElems = [];
 	let colSpaces = [];
 	for (let i = 0; i < rows.length; i++) {
 		let row = rows[i];
@@ -55,8 +56,19 @@ function configure(members) {
 				let span = document.createElement('span');
 				span.classList.add('injected-privboard-day-container');
 				days.insertBefore(span, day);
+
+				let linkSpan = document.createElement('span');
+				linkSpan.classList.add('injected-privboard-day-link-container');
+				span.appendChild(linkSpan);
+
 				days.removeChild(day);
-				span.appendChild(day);
+				let fullDay = day.cloneNode(true);
+				linkSpan.appendChild(day);
+				linkSpan.appendChild(fullDay);
+				day.classList.add('injected-privboard-day');
+				fullDay.classList.add('injected-privboard-full-day');
+
+				dayElems.push(linkSpan);
 				
 				let leftSpace = document.createElement('span');
 				leftSpace.classList.add('injected-privboard-space');
@@ -101,9 +113,11 @@ function configure(members) {
 								if (i == k) {
 									for (let space of colSpace)
 										space.style.removeProperty('width');
+									dayElems[i].classList.add('injected-privboard-day-link-container-open');
 								} else {
 									for (let space of colSpace)
 										space.style.setProperty('width', '0');
+									dayElems[i].classList.remove('injected-privboard-day-link-container-open');
 								}
 							}
 						}, 200);
@@ -115,6 +129,8 @@ function configure(members) {
 							for (let colSpace of colSpaces)
 								for (let space of colSpace)
 									space.style.setProperty('width', '0');
+							for (let day of dayElems)
+								day.classList.remove('injected-privboard-day-link-container-open');
 						}, 200);
 					}
 				} else if (star.className && star.className == 'privboard-name' && members.has(star.innerText)) {
