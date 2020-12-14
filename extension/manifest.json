@@ -8,11 +8,6 @@
 	
 	"content_scripts": [
 		{
-			"css": ["noto-sans.css", "style.css"],
-			"matches": ["https://adventofcode.com/*"],
-			"exclude_matches": ["https://adventofcode.com/*/input", "https://adventofcode.com/*.json"]
-		},
-		{
 			"js": ["leaderboard.js"],
 			"css": ["leaderboard.css"],
 			"matches": ["https://adventofcode.com/*/leaderboard/private/view/*"],
