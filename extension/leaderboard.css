@@ -52,7 +52,7 @@
 }
 
 .injected-privboard-space {
-	font-size: 10pt!important;
+	font-size: 0.75em!important;
 	width: 84px;
 	overflow: hidden;
 	display: inline-flex;
