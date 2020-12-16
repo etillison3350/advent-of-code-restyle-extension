@@ -135,6 +135,8 @@ function configure(members) {
 					}
 				} else if (star.className && star.className == 'privboard-name'){
 					let name = star.firstChild.innerText || star.firstChild.data;
+					if (star.childNodes.length > 1 && name.charAt(name.length - 1) == ' ')
+						name = name.substring(0, name.length - 1);
 					if(members.has(name)) {
 						let timeMap = members.get(name)['completion_day_level'];
 						for (let d = 0; d < colSpaces.length; d++) {
