@@ -133,15 +133,18 @@ function configure(members) {
 								day.classList.remove('injected-privboard-day-link-container-open');
 						}, 200);
 					}
-				} else if (star.className && star.className == 'privboard-name' && members.has(star.innerText)) {
-					let timeMap = members.get(star.innerText)['completion_day_level'];
-					for (let d = 0; d < colSpaces.length; d++) {
-						let dStr = String(d + 1)
-						if (dStr in timeMap) {
-							if ('1' in timeMap[dStr])
-								colSpaces[d][i * 2].innerHTML = ' ' + formatTime(parseInt(timeMap[dStr]['1']['get_star_ts']), d + 1, parseInt(leaderboard['event']));
-							if ('2' in timeMap[dStr])
-								colSpaces[d][i * 2 + 1].innerHTML = formatTime(parseInt(timeMap[dStr]['2']['get_star_ts']), d + 1, parseInt(leaderboard['event'])) + ' ';
+				} else if (star.className && star.className == 'privboard-name'){
+					let name = star.firstChild.innerText || star.firstChild.data;
+					if(members.has(name)) {
+						let timeMap = members.get(name)['completion_day_level'];
+						for (let d = 0; d < colSpaces.length; d++) {
+							let dStr = String(d + 1)
+							if (dStr in timeMap) {
+								if ('1' in timeMap[dStr])
+									colSpaces[d][i * 2].innerHTML = ' ' + formatTime(parseInt(timeMap[dStr]['1']['get_star_ts']), d + 1, parseInt(leaderboard['event']));
+								if ('2' in timeMap[dStr])
+									colSpaces[d][i * 2 + 1].innerHTML = formatTime(parseInt(timeMap[dStr]['2']['get_star_ts']), d + 1, parseInt(leaderboard['event'])) + ' ';
+							}
 						}
 					}
 				}
@@ -157,7 +160,7 @@ req.onreadystatechange = function() {
 		
 		members = new Map();
 		for (let [id, member] of Object.entries(leaderboard.members)) {
-			members.set(member.name, member);
+			members.set(member.name || `(anonymous user #${member.id})`, member);
 		}
 		configure(members);
 	}
